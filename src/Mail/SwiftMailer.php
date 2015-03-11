@@ -4,7 +4,10 @@ namespace Wzrd\Framework\Mail;
 
 use Swift_Mailer;
 use Swift_Message;
+use Swift_Attachment;
+use Swift_EmbeddedFile;
 use Wzrd\Contracts\Mail\Mailer;
+use Wzrd\Contracts\Mail\Message as MessageContract;
 
 class SwiftMailer implements Mailer
 {
@@ -16,7 +19,7 @@ class SwiftMailer implements Mailer
     private $swift;
 
     /**
-     * Création d'une instance SwiftMailer
+     * Construct with SwiftMailer instance
      *
      * @param Swift_Mailer $swift
      */
@@ -28,32 +31,54 @@ class SwiftMailer implements Mailer
     /**
 	 * Send a mail
 	 *
-	 * @param  array  $data
+	 * @param  Wzrd\Contracts\Mail\Message  $message
+	 * @param  array  $options
 	 */
-	public function send(array $data)
+	public function send(MessageContract $message, $options = array())
     {
-        $message = Swift_Message::newInstance();
+        // Initialisation d'un nouveau message
+        $swift_message = Swift_Message::newInstance();
 
-        if(!empty($data['subject'])) {
-            $message->setSubject($data['subject']);
+        // Compose
+        $swift_message->setFrom($message->getFrom());
+        $swift_message->setTo($message->getTo());
+        $swift_message->setCc($message->getCc());
+        $swift_message->setBcc($message->getBcc());
+        $swift_message->setSubject($message->getSubject());
+        $swift_message->addPart($message->getText(), 'text/plain');
+        $swift_message->addPart($message->getHtml(), 'text/html');
+
+        // Attachments
+        foreach($message->getAttachments() as $attachment) {
+            list($file, $options) = $attachment;
+
+            $content_type = empty($options['content-type']) ? null : $options['content-type'];
+
+            $attachment = Swift_Attachment::fromPath($file, $content_type);
+
+            if(!empty($options['filename'])) {
+                $attachment->setFilename($options['filename']);
+            }
+
+            $swift_message->attach($attachment);
         }
 
-        if(!empty($data['from'])) {
-            $message->setFrom($data['from']);
+        // Inline attachments
+        foreach($message->getInlines() as $inline) {
+            list($file, $options) = $inline;
+
+            $content_type = empty($options['content-type']) ? null : $options['content-type'];
+
+            $attachment = Swift_EmbeddedFile::fromPath($file, $content_type);
+
+            if(!empty($options['filename'])) {
+                $attachment->setFilename($options['filename']);
+            }
+
+            $swift_message->embed($attachment);
         }
 
-        if(!empty($data['to'])) {
-            $message->setTo($data['to']);
-        }
-
-        if(!empty($data['bcc'])) {
-            $message->setBcc($data['bcc']);
-        }
-
-        if(!empty($data['body'])) {
-            $message->setBody($data['body']);
-        }
-
-        $this->swift->send($message);
+        // Send !
+        $this->swift->send($swift_message);
     }
 }
