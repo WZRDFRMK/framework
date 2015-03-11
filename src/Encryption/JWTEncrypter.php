@@ -1,8 +1,9 @@
 <?php
 
-namespace Wzrd\Framework\Encrypter;
+namespace Wzrd\Framework\Encryption;
 
 use JWT;
+use Wzrd\Contracts\Encryption\Encrypter;
 
 class JWTEncrypter implements Encrypter
 {
@@ -32,7 +33,7 @@ class JWTEncrypter implements Encrypter
      */
     public function encrypt($value)
     {
-        return JWT::encode($data, $this->key);
+        return JWT::encode($value, $this->key);
     }
 
     /**
@@ -44,6 +45,6 @@ class JWTEncrypter implements Encrypter
      */
     public function decrypt($value)
     {
-        return (array) JWT::decode($value, $this->key);
+        return JWT::decode($value, $this->key);
     }
 }
