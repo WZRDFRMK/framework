@@ -1,9 +1,9 @@
 <?php
 
-namespace Wzrd\Transformer;
+namespace Wzrd\Framework\Transformer;
 
 use League\Fractal;
-use Wzrd\Contracts\Transformer;
+use Wzrd\Contracts\Transformer\Transformer;
 
 class FractalTransformer implements Transformer
 {
@@ -12,7 +12,7 @@ class FractalTransformer implements Transformer
      *
      * @var League\Fractal\Manager
      */
-    private $fractal;
+     protected $fractal;
 
     /**
      * Create a new fractal transformer instance.
@@ -29,12 +29,18 @@ class FractalTransformer implements Transformer
      *
      * @param mixed  $value
      * @param object $transformer
+     * @param array $includes Optional
      *
      * @return array
      */
-    public function transform($value, $transformer)
+    public function transform($value, $transformer, $includes = array())
     {
+        if(!empty($includes)) {
+            $this->fractal->parseIncludes(implode(',', $includes));
+        }
+
         if (is_array($value)) {
+            // TODO : support cursor current / prev / next
             $cursor = new Fractal\Pagination\Cursor(null, null, null, count($value));
             $resource = new Fractal\Resource\Collection($value, $transformer);
             $resource->setCursor($cursor);
@@ -42,6 +48,8 @@ class FractalTransformer implements Transformer
             $resource = new Fractal\Resource\Item($value, $transformer);
         }
 
-        return $this->fractal->createData($resource)->toArray();
+        $data = $this->fractal->createData($resource);
+
+        return $data->toArray();
     }
 }
