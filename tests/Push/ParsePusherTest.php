@@ -36,7 +36,7 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
             "channels" => array('channel1', 'channel2'),
             "expiration_time" => $date1,
             "push_time" => $date2,
-            "data" => $notification->getData(),
+            "data" => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
             "alert" => $notification->getMessage()
         ))->once();
 
@@ -69,7 +69,7 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
             "channels" => null,
             "expiration_time" => null,
             "push_time" => null,
-            "data" => $notification->getData(),
+            "data" => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
             "alert" => $notification->getMessage()
         ))->once();
 
