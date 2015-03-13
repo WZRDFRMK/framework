@@ -33,7 +33,7 @@ class HandlerTest extends PHPUnit_Framework_TestCase
         // Send !
         $handler->push($notification);
 
-        // test platforms supported
+        // Test platforms supported
         $this->assertEquals(['ios', 'blackberry'], $handler->getSupportedPlatforms());
     }
 }
