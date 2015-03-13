@@ -31,7 +31,8 @@
         "swiftmailer/swiftmailer": "~4.2",
         "zendframework/zendservice-google-gcm": "~1.0",
         "zendframework/zendservice-apple-apns": "~1.0",
-        "league/statsd": "~1.1"
+        "league/statsd": "~1.1",
+        "parse/php-sdk": "~1.0"
     },
 
     "require-dev": {
