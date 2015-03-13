@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Logging;
+namespace Wzrd\Logging;
 
 use League\StatsD\Client as Statsd;
 use Wzrd\Contracts\Logging\Measurer;

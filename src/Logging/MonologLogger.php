@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Logging;
+namespace Wzrd\Logging;
 
 use Monolog\Logger as Monolog;
 use Wzrd\Contracts\Logging\Logger;

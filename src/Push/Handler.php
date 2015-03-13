@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Push;
+namespace Wzrd\Push;
 
 use Wzrd\Contracts\Push\Pusher;
 use Wzrd\Contracts\Push\Notification as NotificationContract;

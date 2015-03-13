@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Push;
+namespace Wzrd\Push;
 
 use Parse\ParsePush;
 use Parse\ParseQuery;

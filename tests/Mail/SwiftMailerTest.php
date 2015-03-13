@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Test\Mail;
+namespace Wzrd\Test\Mail;
 
 use Mockery;
 use Swift_Mailer;
@@ -8,7 +8,7 @@ use Swift_Message;
 use Swift_Attachment;
 use Swift_EmbeddedFile;
 use PHPUnit_Framework_TestCase;
-use Wzrd\Framework as Framework;
+use Wzrd as Framework;
 
 class SwiftMailerTest extends PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Transformer;
+namespace Wzrd\Transformer;
 
 use League\Fractal;
 use Wzrd\Contracts\Transformer\Transformer;

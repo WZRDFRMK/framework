@@ -1,11 +1,11 @@
 <?php
 
-namespace Wzrd\Framework\Test\Transformer;
+namespace Wzrd\Test\Transformer;
 
 use Mockery;
 use League\Fractal;
 use PHPUnit_Framework_TestCase;
-use Wzrd\Framework as Framework;
+use Wzrd as Framework;
 
 class FractalTransformerTest extends PHPUnit_Framework_TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzrd\Framework\Test\Mail;
+namespace Wzrd\Test\Mail;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd\Framework as Framework;
+use Wzrd as Framework;
 
 class HandlerTest extends PHPUnit_Framework_TestCase
 {

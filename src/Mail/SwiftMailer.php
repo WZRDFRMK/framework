@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Mail;
+namespace Wzrd\Mail;
 
 use Swift_Mailer;
 use Swift_Message;

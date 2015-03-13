@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Encryption;
+namespace Wzrd\Encryption;
 
 use JWT;
 use Wzrd\Contracts\Encryption\Encrypter;

@@ -44,13 +44,13 @@
 
     "autoload": {
         "psr-4": {
-            "Wzrd\\Framework\\": "src"
+            "Wzrd\\": "src"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "Wzrd\\Framework\\Test\\": "tests"
+            "Wzrd\\Test\\": "tests"
         }
     }
 }

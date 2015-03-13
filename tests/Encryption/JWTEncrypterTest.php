@@ -1,11 +1,11 @@
 <?php
 
-namespace Wzrd\Framework\Test\Encryption;
+namespace Wzrd\Test\Encryption;
 
 use JWT;
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd\Framework as Framework;
+use Wzrd as Framework;
 
 class JWTEncrypterTest extends PHPUnit_Framework_TestCase
 {

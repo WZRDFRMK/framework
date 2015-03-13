@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Hashing;
+namespace Wzrd\Hashing;
 
 use Wzrd\Contracts\Hashing\Hasher;
 

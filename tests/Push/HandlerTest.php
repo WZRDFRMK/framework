@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzrd\Framework\Test\Push;
+namespace Wzrd\Test\Push;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd\Framework as Framework;
+use Wzrd as Framework;
 
 class HandlerTest extends PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzrd\Framework\Mail;
+namespace Wzrd\Mail;
 
 use Wzrd\Contracts\Mail\Mailer;
 use Wzrd\Contracts\Mail\Message as MessageContract;
