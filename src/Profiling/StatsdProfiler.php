@@ -1,11 +1,11 @@
 <?php
 
-namespace Wzrd\Logging;
+namespace WZRD\Profiling;
 
 use League\StatsD\Client as Statsd;
-use Wzrd\Contracts\Logging\Measurer;
+use WZRD\Contracts\Profiling\Profiler;
 
-class StatsdMeasurer implements Measurer
+class StatsdMeasurer implements Profiler
 {
     /**
      * StatsD instance

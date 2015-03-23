@@ -1,17 +1,17 @@
 <?php
 
-namespace Wzrd\Test\Logging;
+namespace Wzrd\Test\Profiling;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
 use Wzrd as Framework;
 
-class StatsdMeasurerTest extends PHPUnit_Framework_TestCase
+class StatsdProfilerTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
         $this->statsd = Mockery::mock('League\StatsD\Client')->makePartial();
-        $this->measurer = new Framework\Logging\StatsdMeasurer($this->statsd);
+        $this->measurer = new Framework\Profiling\StatsdMeasurer($this->statsd);
     }
 
     public function test_increment()
