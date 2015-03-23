@@ -4,9 +4,6 @@ namespace WZRD\Test\Mail;
 
 use Mockery;
 use Swift_Mailer;
-use Swift_Message;
-use Swift_Attachment;
-use Swift_EmbeddedFile;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;
 

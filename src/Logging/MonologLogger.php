@@ -8,14 +8,14 @@ use WZRD\Contracts\Logging\Logger;
 class MonologLogger implements Logger
 {
     /**
-     * Monolog instance
+     * Monolog instance.
      *
      * @var Monolog\Logger
      */
     private $monolog;
 
     /**
-     * Initialize logger with Monolog instance
+     * Initialize logger with Monolog instance.
      *
      * @param Monolog\Logger $monolog
      */
@@ -28,8 +28,7 @@ class MonologLogger implements Logger
      * System is unusable.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function emergency($message, array $context = array())
     {
@@ -43,8 +42,7 @@ class MonologLogger implements Logger
      * trigger the SMS alerts and wake you up.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function alert($message, array $context = array())
     {
@@ -57,8 +55,7 @@ class MonologLogger implements Logger
      * Example: Application component unavailable, unexpected exception.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function critical($message, array $context = array())
     {
@@ -70,8 +67,7 @@ class MonologLogger implements Logger
      * be logged and monitored.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function error($message, array $context = array())
     {
@@ -85,8 +81,7 @@ class MonologLogger implements Logger
      * that are not necessarily wrong.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function warning($message, array $context = array())
     {
@@ -97,8 +92,7 @@ class MonologLogger implements Logger
      * Normal but significant events.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function notice($message, array $context = array())
     {
@@ -111,8 +105,7 @@ class MonologLogger implements Logger
      * Example: User logs in, SQL logs.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function info($message, array $context = array())
     {
@@ -123,8 +116,7 @@ class MonologLogger implements Logger
      * Detailed debug information.
      *
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function debug($message, array $context = array())
     {
@@ -134,10 +126,9 @@ class MonologLogger implements Logger
     /**
      * Logs with an arbitrary level.
      *
-     * @param mixed $level
+     * @param mixed  $level
      * @param string $message
-     * @param array $context
-     * @return null
+     * @param array  $context
      */
     public function log($level, $message, array $context = array())
     {

@@ -7,11 +7,11 @@ use WZRD\Contracts\Transformer\Transformer;
 
 class FractalTransformer implements Transformer
 {
-    /**
-     * Fractal.
-     *
-     * @var League\Fractal\Manager
-     */
+     /**
+      * Fractal.
+      *
+      * @var League\Fractal\Manager
+      */
      protected $fractal;
 
     /**
@@ -29,13 +29,13 @@ class FractalTransformer implements Transformer
      *
      * @param mixed  $value
      * @param object $transformer
-     * @param array $includes Optional
+     * @param array  $includes    Optional
      *
      * @return array
      */
     public function transform($value, $transformer, $includes = array())
     {
-        if(!empty($includes)) {
+        if (!empty($includes)) {
             $this->fractal->parseIncludes(implode(',', $includes));
         }
 

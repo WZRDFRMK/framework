@@ -25,15 +25,15 @@ class Handler implements Mailer
     }
 
     /**
-	 * Send a mail
-	 *
-	 * @param  WZRD\Contracts\Mail\Message  $message
-	 * @param  array  $options
-	 */
-	public function send(MessageContract $message, $options = array())
+     * Send a mail.
+     *
+     * @param WZRD\Contracts\Mail\Message $message
+     * @param array                       $options
+     */
+    public function send(MessageContract $message, $options = array())
     {
-        foreach($this->mailers as $mailer) {
-            if($mailer instanceof Mailer) {
+        foreach ($this->mailers as $mailer) {
+            if ($mailer instanceof Mailer) {
                 $mailer->send($message, $options);
             }
         }

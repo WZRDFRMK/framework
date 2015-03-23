@@ -12,7 +12,7 @@ class HandlerTest extends PHPUnit_Framework_TestCase
     {
         // Setup mailers
         $pusher1 = $pusher2 = Mockery::mock('WZRD\Contracts\Push\Pusher')->makePartial();
-        $pushers = array($pusher1, $pusher2, new \StdClass);
+        $pushers = array($pusher1, $pusher2, new \StdClass());
         $pusher1->shouldReceive('getSupportedPlatforms')->andReturn(['ios', 'blackberry']);
         $pusher2->shouldReceive('getSupportedPlatforms')->andReturn(['ios']);
 

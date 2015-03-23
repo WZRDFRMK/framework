@@ -2,7 +2,6 @@
 
 namespace WZRD\Test\Push;
 
-use Mockery;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;
 
@@ -25,12 +24,12 @@ class NotificationTest extends PHPUnit_Framework_TestCase
         $devices_expected = array(
             'ios' => array(
                 'devices' => array('token1', 'token2', 'token3'),
-                'options' => array('sound' => 'goal2.aif')
+                'options' => array('sound' => 'goal2.aif'),
             ),
             'gcm' => array(
                 'devices' => array('token3', 'token4'),
-                'options' => array('title' => 'But !')
-            )
+                'options' => array('title' => 'But !'),
+            ),
         );
         $this->assertEquals($devices_expected, $notification->getDevices());
     }

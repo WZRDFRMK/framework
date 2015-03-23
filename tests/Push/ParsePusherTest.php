@@ -4,7 +4,6 @@ namespace WZRD\Test\Push;
 
 use Mockery;
 use Datetime;
-use Parse\ParseInstallation;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;
 
@@ -37,14 +36,14 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
             "expiration_time" => $date1,
             "push_time" => $date2,
             "data" => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
-            "alert" => $notification->getMessage()
+            "alert" => $notification->getMessage(),
         ))->once();
 
         // Push the notification
         $pusher->push($notification, array(
             'parse_channels' => array('channel1', 'channel2'),
             'parse_expiration_time' => $date1,
-            'parse_push_time' => $date2
+            'parse_push_time' => $date2,
         ));
     }
 
@@ -70,7 +69,7 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
             "expiration_time" => null,
             "push_time" => null,
             "data" => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
-            "alert" => $notification->getMessage()
+            "alert" => $notification->getMessage(),
         ))->once();
 
         // Push the notification

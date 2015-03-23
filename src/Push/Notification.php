@@ -7,29 +7,28 @@ use WZRD\Contracts\Push\Notification as NotificationContract;
 class Notification implements NotificationContract
 {
     /**
-     * Message
+     * Message.
      *
      * @var string
      */
     protected $message;
 
     /**
-     * Data
+     * Data.
      *
      * @var array
      */
     protected $data;
 
     /**
-     * Devices
+     * Devices.
      *
      * @var array
      */
     protected $devices;
 
     /**
-     * Construct
-     *
+     * Construct.
      */
     public function __construct()
     {
@@ -38,90 +37,92 @@ class Notification implements NotificationContract
     }
 
     /**
-	 * Set the notification's message.
-	 *
-	 * @param  string $message
-	 * @return self
-	 */
-	public function setMessage($message)
+     * Set the notification's message.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function setMessage($message)
     {
         $this->message = $message;
 
         return $this;
     }
 
-	/**
-	 * Get notification's message.
-	 *
-	 * @return string
-	 */
-	public function getMessage()
+    /**
+     * Get notification's message.
+     *
+     * @return string
+     */
+    public function getMessage()
     {
         return $this->message;
     }
 
-	/**
-	 * Set the notification's data.
-	 *
-	 * @param  array  $data
-	 * @return self
-	 */
-	public function setData(array $data)
+    /**
+     * Set the notification's data.
+     *
+     * @param array $data
+     *
+     * @return self
+     */
+    public function setData(array $data)
     {
         $this->data = $data;
 
         return $this;
     }
 
-	/**
-	 * Get notification's data.
-	 *
-	 * @return array
-	 */
-	public function getData()
+    /**
+     * Get notification's data.
+     *
+     * @return array
+     */
+    public function getData()
     {
         return $this->data;
     }
 
-	/**
-	 * Add a platform to the notification.
-	 *
-	 * @param  string  $platform
-     * @param  array  $platform
-	 * @param  array  $options Optional
-	 * @return self
-	 */
-	public function addDevices($platform, array $devices, array $options = array())
+    /**
+     * Add a platform to the notification.
+     *
+     * @param string $platform
+     * @param array  $platform
+     * @param array  $options  Optional
+     *
+     * @return self
+     */
+    public function addDevices($platform, array $devices, array $options = array())
     {
         $data = array('devices' => $devices, 'options' => $options);
 
-        if(!empty($this->devices[$platform])) {
+        if (!empty($this->devices[$platform])) {
             $this->devices[$platform]['devices'] = array_merge($this->devices[$platform]['devices'], $data['devices']);
             $this->devices[$platform]['options'] = array_merge($this->devices[$platform]['options'], $data['options']);
-        }
-        else {
+        } else {
             $this->devices[$platform] =  $data;
         }
 
         return $this;
     }
 
-	/**
-	 * Get devices tokens.
-	 *
-	 * @return array
-	 */
-	public function getDevices()
+    /**
+     * Get devices tokens.
+     *
+     * @return array
+     */
+    public function getDevices()
     {
         return $this->devices;
     }
 
-	/**
-	 * Get targeted platforms
-	 *
-	 * @return array
-	 */
-	public function getTargetedPlatforms()
+    /**
+     * Get targeted platforms.
+     *
+     * @return array
+     */
+    public function getTargetedPlatforms()
     {
         return array_keys($this->devices);
     }

@@ -2,7 +2,6 @@
 
 namespace WZRD\Test\Mail;
 
-use Mockery;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;
 

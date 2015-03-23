@@ -5,17 +5,17 @@ namespace WZRD\Profiling;
 use League\StatsD\Client as Statsd;
 use WZRD\Contracts\Profiling\Profiler;
 
-class StatsdMeasurer implements Profiler
+class StatsdProfiler implements Profiler
 {
     /**
-     * StatsD instance
+     * StatsD instance.
      *
      * @var League\StatsD\Client
      */
     private $statsd;
 
     /**
-     * Initialize measurer with StatsD instance
+     * Initialize measurer with StatsD instance.
      *
      * @param League\StatsD\Client $statsd
      */
@@ -25,11 +25,12 @@ class StatsdMeasurer implements Profiler
     }
 
     /**
-     * Increment a metric
+     * Increment a metric.
      *
-     * @param  string|array $metrics Metric(s) to increment
-     * @param  int $delta Value to decrement the metric by
-     * @param  int $sampleRate Sample rate of metric
+     * @param string|array $metrics    Metric(s) to increment
+     * @param int          $delta      Value to decrement the metric by
+     * @param int          $sampleRate Sample rate of metric
+     *
      * @return bool True if data transfer is successful
      */
     public function increment($metrics, $delta = 1, $sampleRate = 1)
@@ -38,11 +39,12 @@ class StatsdMeasurer implements Profiler
     }
 
     /**
-     * Decrement a metric
+     * Decrement a metric.
      *
-     * @param  string|array $metrics Metric(s) to decrement
-     * @param  int $delta Value to increment the metric by
-     * @param  int $sampleRate Sample rate of metric
+     * @param string|array $metrics    Metric(s) to decrement
+     * @param int          $delta      Value to increment the metric by
+     * @param int          $sampleRate Sample rate of metric
+     *
      * @return bool True if data transfer is successful
      */
     public function decrement($metrics, $delta = 1, $sampleRate = 1)
@@ -51,10 +53,11 @@ class StatsdMeasurer implements Profiler
     }
 
     /**
-     * Timing
+     * Timing.
      *
-     * @param  string $metric Metric to track
-     * @param  float $time Time in milliseconds
+     * @param string $metric Metric to track
+     * @param float  $time   Time in milliseconds
+     *
      * @return bool True if data transfer is successful
      */
     public function timing($metric, $time)
@@ -63,10 +66,11 @@ class StatsdMeasurer implements Profiler
     }
 
     /**
-     * Time a function
+     * Time a function.
      *
-     * @param  string $metric Metric to time
-     * @param  callable $func Function to record
+     * @param string   $metric Metric to time
+     * @param callable $func   Function to record
+     *
      * @return bool True if data transfer is successful
      */
     public function time($metric, $func)
@@ -75,10 +79,11 @@ class StatsdMeasurer implements Profiler
     }
 
     /**
-     * Gauges
+     * Gauges.
      *
-     * @param  string $metric Metric to gauge
-     * @param  int $value Set the value of the gauge
+     * @param string $metric Metric to gauge
+     * @param int    $value  Set the value of the gauge
+     *
      * @return bool True if data transfer is successful
      */
     public function gauge($metric, $value)
@@ -87,10 +92,11 @@ class StatsdMeasurer implements Profiler
     }
 
     /**
-     * Sets - count the number of unique values passed to a key
+     * Sets - count the number of unique values passed to a key.
      *
      * @param $metric
      * @param mixed $value
+     *
      * @return bool True if data transfer is successful
      */
     public function set($metric, $value)

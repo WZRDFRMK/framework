@@ -7,71 +7,70 @@ use WZRD\Contracts\Mail\Message as MessageContract;
 class Message implements MessageContract
 {
     /**
-     * From addresses
+     * From addresses.
      *
      * @var array
      */
     protected $from;
 
     /**
-     * Recipients addresses
+     * Recipients addresses.
      *
      * @var array
      */
     protected $to;
 
     /**
-     * CC addresses
+     * CC addresses.
      *
      * @var array
      */
     protected $cc;
 
     /**
-     * BCC addresses
+     * BCC addresses.
      *
      * @var array
      */
     protected $bcc;
 
     /**
-     * Subject
+     * Subject.
      *
      * @var string
      */
     protected $subject;
 
     /**
-     * Text
+     * Text.
      *
      * @var string
      */
     protected $text;
 
     /**
-     * HTML
+     * HTML.
      *
      * @var string
      */
     protected $html;
 
     /**
-     * Attachments
+     * Attachments.
      *
      * @var array
      */
     protected $attach;
 
     /**
-     * Attachments with inline disposition
+     * Attachments with inline disposition.
      *
      * @var array
      */
     protected $inline;
 
     /**
-     * Construct
-     *
+     * Construct.
      */
     public function __construct()
     {
@@ -80,13 +79,14 @@ class Message implements MessageContract
     }
 
     /**
-	 * Add a "from" address to the message.
-	 *
-	 * @param  string  $address
-	 * @param  string  $name
-	 * @return self
-	 */
-	public function addFrom($address, $name = null)
+     * Add a "from" address to the message.
+     *
+     * @param string $address
+     * @param string $name
+     *
+     * @return self
+     */
+    public function addFrom($address, $name = null)
     {
         $this->from[$address] = $name;
 
@@ -94,23 +94,24 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get "from" addresses
-	 *
-	 * @return array
-	 */
-	public function getFrom()
+     * Get "from" addresses.
+     *
+     * @return array
+     */
+    public function getFrom()
     {
         return $this->from;
     }
 
-	/**
-	 * Add a recipient to the message.
-	 *
-	 * @param  string  $address
-	 * @param  string  $name
-	 * @return self
-	 */
-	public function addTo($address, $name = null)
+    /**
+     * Add a recipient to the message.
+     *
+     * @param string $address
+     * @param string $name
+     *
+     * @return self
+     */
+    public function addTo($address, $name = null)
     {
         $this->to[$address] = $name;
 
@@ -118,23 +119,24 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get recipients addresses
-	 *
-	 * @return array
-	 */
-	public function getTo()
+     * Get recipients addresses.
+     *
+     * @return array
+     */
+    public function getTo()
     {
         return $this->to;
     }
 
-	/**
-	 * Add a carbon copy to the message.
-	 *
-	 * @param  string  $address
-	 * @param  string  $name
-	 * @return self
-	 */
-	public function addCc($address, $name = null)
+    /**
+     * Add a carbon copy to the message.
+     *
+     * @param string $address
+     * @param string $name
+     *
+     * @return self
+     */
+    public function addCc($address, $name = null)
     {
         $this->cc[$address] = $name;
 
@@ -142,7 +144,7 @@ class Message implements MessageContract
     }
 
     /**
-     * Get carbon copies addresses
+     * Get carbon copies addresses.
      *
      * @return array
      */
@@ -151,14 +153,15 @@ class Message implements MessageContract
         return $this->cc;
     }
 
-	/**
-	 * Add a blind carbon copy to the message.
-	 *
-	 * @param  string  $address
-	 * @param  string  $name
-	 * @return self
-	 */
-	public function addBcc($address, $name = null)
+    /**
+     * Add a blind carbon copy to the message.
+     *
+     * @param string $address
+     * @param string $name
+     *
+     * @return self
+     */
+    public function addBcc($address, $name = null)
     {
         $this->bcc[$address] = $name;
 
@@ -166,21 +169,22 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get blind carbon copies addresses
-	 *
-	 * @return array
-	 */
-	public function getBcc()
+     * Get blind carbon copies addresses.
+     *
+     * @return array
+     */
+    public function getBcc()
     {
         return $this->bcc;
     }
 
     /**
-    * Set the subject of the message.
-    *
-    * @param  string  $subject
-    * @return self
-    */
+     * Set the subject of the message.
+     *
+     * @param string $subject
+     *
+     * @return self
+     */
     public function setSubject($subject)
     {
         $this->subject = $subject;
@@ -189,22 +193,23 @@ class Message implements MessageContract
     }
 
     /**
-    * Get subject.
-    *
-    * @return string
-    */
+     * Get subject.
+     *
+     * @return string
+     */
     public function getSubject()
     {
         return $this->subject;
     }
 
-	/**
-	 * Set the text of the message.
-	 *
-	 * @param  string  $text
-	 * @return $this
-	 */
-	public function setText($text)
+    /**
+     * Set the text of the message.
+     *
+     * @param string $text
+     *
+     * @return $this
+     */
+    public function setText($text)
     {
         $this->text = $text;
 
@@ -212,22 +217,23 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get text
-	 *
-	 * @return string
-	 */
-	public function getText()
+     * Get text.
+     *
+     * @return string
+     */
+    public function getText()
     {
         return $this->text;
     }
 
-	/**
-	 * Set the html of the message.
-	 *
-	 * @param  string  $html
-	 * @return $this
-	 */
-	public function setHtml($html)
+    /**
+     * Set the html of the message.
+     *
+     * @param string $html
+     *
+     * @return $this
+     */
+    public function setHtml($html)
     {
         $this->html = $html;
 
@@ -235,23 +241,24 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get HTML
-	 *
-	 * @return string
-	 */
-	public function getHtml()
+     * Get HTML.
+     *
+     * @return string
+     */
+    public function getHtml()
     {
         return $this->html;
     }
 
-	/**
-	 * Attach a file to the message.
-	 *
-	 * @param  string  $file
-	 * @param  array   $options
-	 * @return $this
-	 */
-	public function attach($file, array $options = array())
+    /**
+     * Attach a file to the message.
+     *
+     * @param string $file
+     * @param array  $options
+     *
+     * @return $this
+     */
+    public function attach($file, array $options = array())
     {
         $this->attach[] = array($file, $options);
 
@@ -259,23 +266,24 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get attachments
-	 *
-	 * @return array
-	 */
-	public function getAttachments()
+     * Get attachments.
+     *
+     * @return array
+     */
+    public function getAttachments()
     {
         return $this->attach;
     }
 
-	/**
-	 * Attach a file to the message with inline disposition.
-	 *
-	 * @param  string  $file
-	 * @param  array   $options
-	 * @return $this
-	 */
-	public function inline($file, array $options = array())
+    /**
+     * Attach a file to the message with inline disposition.
+     *
+     * @param string $file
+     * @param array  $options
+     *
+     * @return $this
+     */
+    public function inline($file, array $options = array())
     {
         $this->inline[] = array($file, $options);
 
@@ -283,11 +291,11 @@ class Message implements MessageContract
     }
 
     /**
-	 * Get inlines attachments
-	 *
-	 * @return array
-	 */
-	public function getInlines()
+     * Get inlines attachments.
+     *
+     * @return array
+     */
+    public function getInlines()
     {
         return $this->inline;
     }

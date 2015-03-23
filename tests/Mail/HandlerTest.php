@@ -12,7 +12,7 @@ class HandlerTest extends PHPUnit_Framework_TestCase
     {
         // Setup mailers
         $mailer1 = $mailer2 = Mockery::mock('WZRD\Contracts\Mail\Mailer')->makePartial();
-        $mailers = array($mailer1, $mailer2, new \StdClass);
+        $mailers = array($mailer1, $mailer2, new \StdClass());
 
         // Configure handler
         $handler = new Framework\Mail\Handler($mailers);

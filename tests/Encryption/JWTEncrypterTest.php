@@ -2,7 +2,6 @@
 
 namespace WZRD\Test\Encryption;
 
-use JWT;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;

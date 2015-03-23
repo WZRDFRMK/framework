@@ -34,7 +34,7 @@ class StatsdProfilerTest extends PHPUnit_Framework_TestCase
 
     public function test_time()
     {
-        $func = function() {};
+        $func = function () {};
         $this->statsd->shouldReceive('time')->with('metric', $func)->once();
         $this->measurer->time('metric', $func);
     }

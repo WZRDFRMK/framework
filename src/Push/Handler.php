@@ -27,29 +27,29 @@ class Handler implements Pusher
     /**
      * Push message.
      *
-     * @param  WZRD\Contracts\Push\Notification  $notification
-     * @param  array  $options
+     * @param WZRD\Contracts\Push\Notification $notification
+     * @param array                            $options
      */
     public function push(NotificationContract $notification, array $options = array())
     {
-        foreach($this->pushers as $pusher) {
-            if($pusher instanceof Pusher) {
+        foreach ($this->pushers as $pusher) {
+            if ($pusher instanceof Pusher) {
                 $pusher->push($notification, $options);
             }
         }
     }
 
     /**
-     * Get supported platforms
+     * Get supported platforms.
      *
-     * @return  array
+     * @return array
      */
     public function getSupportedPlatforms()
     {
         $platforms = array();
 
-        foreach($this->pushers as $pusher) {
-            if($pusher instanceof Pusher) {
+        foreach ($this->pushers as $pusher) {
+            if ($pusher instanceof Pusher) {
                 $platforms = array_merge($platforms, $pusher->getSupportedPlatforms());
             }
         }

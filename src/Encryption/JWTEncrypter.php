@@ -8,14 +8,14 @@ use WZRD\Contracts\Encryption\Encrypter;
 class JWTEncrypter implements Encrypter
 {
     /**
-     * Security key
+     * Security key.
      *
      * @var string
      */
     private $key;
 
     /**
-     * Initialize hash with security key
+     * Initialize hash with security key.
      *
      * @param string $key
      */

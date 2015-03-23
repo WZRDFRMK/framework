@@ -19,7 +19,7 @@ class SwiftMailer implements Mailer
     private $swift;
 
     /**
-     * Construct with SwiftMailer instance
+     * Construct with SwiftMailer instance.
      *
      * @param Swift_Mailer $swift
      */
@@ -29,12 +29,12 @@ class SwiftMailer implements Mailer
     }
 
     /**
-	 * Send a mail
-	 *
-	 * @param  WZRD\Contracts\Mail\Message  $message
-	 * @param  array  $options
-	 */
-	public function send(MessageContract $message, $options = array())
+     * Send a mail.
+     *
+     * @param WZRD\Contracts\Mail\Message $message
+     * @param array                       $options
+     */
+    public function send(MessageContract $message, $options = array())
     {
         // Initialisation d'un nouveau message
         $swift_message = Swift_Message::newInstance();
@@ -49,14 +49,14 @@ class SwiftMailer implements Mailer
         $swift_message->addPart($message->getHtml(), 'text/html');
 
         // Attachments
-        foreach($message->getAttachments() as $attachment) {
+        foreach ($message->getAttachments() as $attachment) {
             list($file, $options) = $attachment;
 
             $content_type = empty($options['content-type']) ? null : $options['content-type'];
 
             $attachment = Swift_Attachment::fromPath($file, $content_type);
 
-            if(!empty($options['filename'])) {
+            if (!empty($options['filename'])) {
                 $attachment->setFilename($options['filename']);
             }
 
@@ -64,14 +64,14 @@ class SwiftMailer implements Mailer
         }
 
         // Inline attachments
-        foreach($message->getInlines() as $inline) {
+        foreach ($message->getInlines() as $inline) {
             list($file, $options) = $inline;
 
             $content_type = empty($options['content-type']) ? null : $options['content-type'];
 
             $attachment = Swift_EmbeddedFile::fromPath($file, $content_type);
 
-            if(!empty($options['filename'])) {
+            if (!empty($options['filename'])) {
                 $attachment->setFilename($options['filename']);
             }
 

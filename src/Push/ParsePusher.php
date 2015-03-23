@@ -4,7 +4,6 @@ namespace WZRD\Push;
 
 use Parse\ParsePush;
 use Parse\ParseQuery;
-use Parse\ParseClient;
 use Parse\ParseInstallation;
 use WZRD\Contracts\Push\Pusher;
 use WZRD\Contracts\Push\Notification as NotificationContract;
@@ -14,8 +13,8 @@ class ParsePusher implements Pusher
     /**
      * Push message.
      *
-     * @param  WZRD\Contracts\Push\Notification  $notification
-     * @param  array  $options
+     * @param WZRD\Contracts\Push\Notification $notification
+     * @param array                            $options
      *
      * Parse's specifics options :
      * <code>
@@ -29,27 +28,25 @@ class ParsePusher implements Pusher
      */
     public function push(NotificationContract $notification, array $options = array())
     {
-        if(count(array_intersect($notification->getTargetedPlatforms(), $this->getSupportedPlatforms())) > 0) {
-
-            if(empty($options['parse_query'])) {
+        if (count(array_intersect($notification->getTargetedPlatforms(), $this->getSupportedPlatforms())) > 0) {
+            if (empty($options['parse_query'])) {
                 // Initialize the query
                 $query = $this->parseQuery();
 
                 // Targetted devices
                 $devices = array();
-                foreach($notification->getDevices() as $platform) {
+                foreach ($notification->getDevices() as $platform) {
                     $devices = array_merge($devices, $platform['devices']);
                 }
 
                 $query->equalTo('deviceToken', $devices);
-            }
-            else {
+            } else {
                 $query = $options['parse_query'];
             }
 
             // Platforms options
             $platforms_options = array();
-            foreach($notification->getDevices() as $platform) {
+            foreach ($notification->getDevices() as $platform) {
                 $platforms_options = array_merge($platforms_options, $platform['options']);
             }
 
@@ -60,13 +57,13 @@ class ParsePusher implements Pusher
                 "expiration_time" => !empty($options['parse_expiration_time']) ? $options['parse_expiration_time'] : null,
                 "push_time" => !empty($options['parse_push_time']) ? $options['parse_push_time'] : null,
                 "data" => array_merge($notification->getData(), $platforms_options),
-                "alert" => $notification->getMessage()
+                "alert" => $notification->getMessage(),
             ));
         }
     }
 
     /**
-     * Create Parse query
+     * Create Parse query.
      *
      * @return Parse\ParseQuery
      */
@@ -76,9 +73,9 @@ class ParsePusher implements Pusher
     }
 
     /**
-     * Do Parse Push
+     * Do Parse Push.
      *
-     * @param  array $data
+     * @param array $data
      */
     protected function parsePushSend($data)
     {
@@ -86,9 +83,9 @@ class ParsePusher implements Pusher
     }
 
     /**
-     * Get supported platforms
+     * Get supported platforms.
      *
-     * @return  array
+     * @return array
      */
     public function getSupportedPlatforms()
     {
