@@ -1,23 +1,23 @@
 <?php
 
-namespace Wzrd\Mail;
+namespace WZRD\Mail;
 
-use Wzrd\Contracts\Mail\Mailer;
-use Wzrd\Contracts\Mail\Message as MessageContract;
+use WZRD\Contracts\Mail\Mailer;
+use WZRD\Contracts\Mail\Message as MessageContract;
 
 class Handler implements Mailer
 {
     /**
      * Mailers.
      *
-     * @var Wzrd\Contracts\Mail\Mailer[]
+     * @var WZRD\Contracts\Mail\Mailer[]
      */
     protected $mailers;
 
     /**
      * Construct with mailers instances.
      *
-     * @param Wzrd\Contracts\Mail\Mailer[] $mailers
+     * @param WZRD\Contracts\Mail\Mailer[] $mailers
      */
     public function __construct(array $mailers)
     {
@@ -27,7 +27,7 @@ class Handler implements Mailer
     /**
 	 * Send a mail
 	 *
-	 * @param  Wzrd\Contracts\Mail\Message  $message
+	 * @param  WZRD\Contracts\Mail\Message  $message
 	 * @param  array  $options
 	 */
 	public function send(MessageContract $message, $options = array())

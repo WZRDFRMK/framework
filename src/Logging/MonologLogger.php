@@ -1,9 +1,9 @@
 <?php
 
-namespace Wzrd\Logging;
+namespace WZRD\Logging;
 
 use Monolog\Logger as Monolog;
-use Wzrd\Contracts\Logging\Logger;
+use WZRD\Contracts\Logging\Logger;
 
 class MonologLogger implements Logger
 {

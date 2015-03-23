@@ -1,17 +1,17 @@
 <?php
 
-namespace Wzrd\Test\Mail;
+namespace WZRD\Test\Mail;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class HandlerTest extends PHPUnit_Framework_TestCase
 {
     public function test_send()
     {
         // Setup mailers
-        $mailer1 = $mailer2 = Mockery::mock('Wzrd\Contracts\Mail\Mailer')->makePartial();
+        $mailer1 = $mailer2 = Mockery::mock('WZRD\Contracts\Mail\Mailer')->makePartial();
         $mailers = array($mailer1, $mailer2, new \StdClass);
 
         // Configure handler

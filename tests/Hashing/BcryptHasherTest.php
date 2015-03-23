@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzrd\Test\Hashing;
+namespace WZRD\Test\Hashing;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class BcryptHasherTest extends PHPUnit_Framework_TestCase
 {

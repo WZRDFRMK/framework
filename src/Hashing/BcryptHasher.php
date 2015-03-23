@@ -1,8 +1,8 @@
 <?php
 
-namespace Wzrd\Hashing;
+namespace WZRD\Hashing;
 
-use Wzrd\Contracts\Hashing\Hasher;
+use WZRD\Contracts\Hashing\Hasher;
 
 class BcryptHasher implements Hasher
 {

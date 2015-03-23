@@ -1,9 +1,9 @@
 <?php
 
-namespace Wzrd\Transformer;
+namespace WZRD\Transformer;
 
 use League\Fractal;
-use Wzrd\Contracts\Transformer\Transformer;
+use WZRD\Contracts\Transformer\Transformer;
 
 class FractalTransformer implements Transformer
 {

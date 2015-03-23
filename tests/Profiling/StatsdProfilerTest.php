@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzrd\Test\Profiling;
+namespace WZRD\Test\Profiling;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class StatsdProfilerTest extends PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Wzrd\Push;
+namespace WZRD\Push;
 
-use Wzrd\Contracts\Push\Notification as NotificationContract;
+use WZRD\Contracts\Push\Notification as NotificationContract;
 
 class Notification implements NotificationContract
 {

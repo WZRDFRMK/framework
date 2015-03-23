@@ -1,8 +1,8 @@
 <?php
 
-namespace Wzrd\Mail;
+namespace WZRD\Mail;
 
-use Wzrd\Contracts\Mail\Message as MessageContract;
+use WZRD\Contracts\Mail\Message as MessageContract;
 
 class Message implements MessageContract
 {

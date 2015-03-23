@@ -1,20 +1,20 @@
 <?php
 
-namespace Wzrd\Push;
+namespace WZRD\Push;
 
 use Parse\ParsePush;
 use Parse\ParseQuery;
 use Parse\ParseClient;
 use Parse\ParseInstallation;
-use Wzrd\Contracts\Push\Pusher;
-use Wzrd\Contracts\Push\Notification as NotificationContract;
+use WZRD\Contracts\Push\Pusher;
+use WZRD\Contracts\Push\Notification as NotificationContract;
 
 class ParsePusher implements Pusher
 {
     /**
      * Push message.
      *
-     * @param  Wzrd\Contracts\Push\Notification  $notification
+     * @param  WZRD\Contracts\Push\Notification  $notification
      * @param  array  $options
      *
      * Parse's specifics options :

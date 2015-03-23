@@ -1,12 +1,12 @@
 <?php
 
-namespace Wzrd\Test\Push;
+namespace WZRD\Test\Push;
 
 use Mockery;
 use Datetime;
 use Parse\ParseInstallation;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class ParsePusherTest extends PHPUnit_Framework_TestCase
 {
@@ -16,7 +16,7 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
         $date2 = new Datetime('tomorrow');
 
         // Prepare pusher
-        $pusher = Mockery::mock('Wzrd\Push\ParsePusher[parseQuery,parsePushSend]')->shouldAllowMockingProtectedMethods();
+        $pusher = Mockery::mock('WZRD\Push\ParsePusher[parseQuery,parsePushSend]')->shouldAllowMockingProtectedMethods();
 
         // Compose notification
         $notification = new Framework\Push\Notification();
@@ -51,7 +51,7 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
     public function test_custom_query()
     {
         // Prepare pusher
-        $pusher = Mockery::mock('Wzrd\Push\ParsePusher[parseQuery,parsePushSend]')->shouldAllowMockingProtectedMethods();
+        $pusher = Mockery::mock('WZRD\Push\ParsePusher[parseQuery,parsePushSend]')->shouldAllowMockingProtectedMethods();
 
         // Compose notification
         $notification = new Framework\Push\Notification();

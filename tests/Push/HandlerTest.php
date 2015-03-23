@@ -1,17 +1,17 @@
 <?php
 
-namespace Wzrd\Test\Push;
+namespace WZRD\Test\Push;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class HandlerTest extends PHPUnit_Framework_TestCase
 {
     public function test_send()
     {
         // Setup mailers
-        $pusher1 = $pusher2 = Mockery::mock('Wzrd\Contracts\Push\Pusher')->makePartial();
+        $pusher1 = $pusher2 = Mockery::mock('WZRD\Contracts\Push\Pusher')->makePartial();
         $pushers = array($pusher1, $pusher2, new \StdClass);
         $pusher1->shouldReceive('getSupportedPlatforms')->andReturn(['ios', 'blackberry']);
         $pusher2->shouldReceive('getSupportedPlatforms')->andReturn(['ios']);

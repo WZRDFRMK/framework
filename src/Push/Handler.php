@@ -1,23 +1,23 @@
 <?php
 
-namespace Wzrd\Push;
+namespace WZRD\Push;
 
-use Wzrd\Contracts\Push\Pusher;
-use Wzrd\Contracts\Push\Notification as NotificationContract;
+use WZRD\Contracts\Push\Pusher;
+use WZRD\Contracts\Push\Notification as NotificationContract;
 
 class Handler implements Pusher
 {
     /**
      * Pushers.
      *
-     * @var Wzrd\Contracts\Push\Pusher[]
+     * @var WZRD\Contracts\Push\Pusher[]
      */
     protected $pushers;
 
     /**
      * Construct with pushers instances.
      *
-     * @param Wzrd\Contracts\Push\Pusher[] $pushers
+     * @param WZRD\Contracts\Push\Pusher[] $pushers
      */
     public function __construct(array $pushers)
     {
@@ -27,7 +27,7 @@ class Handler implements Pusher
     /**
      * Push message.
      *
-     * @param  Wzrd\Contracts\Push\Notification  $notification
+     * @param  WZRD\Contracts\Push\Notification  $notification
      * @param  array  $options
      */
     public function push(NotificationContract $notification, array $options = array())

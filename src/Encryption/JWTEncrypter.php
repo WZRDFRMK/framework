@@ -1,9 +1,9 @@
 <?php
 
-namespace Wzrd\Encryption;
+namespace WZRD\Encryption;
 
 use JWT;
-use Wzrd\Contracts\Encryption\Encrypter;
+use WZRD\Contracts\Encryption\Encrypter;
 
 class JWTEncrypter implements Encrypter
 {

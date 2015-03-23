@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzrd\Test\Push;
+namespace WZRD\Test\Push;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class NotificationTest extends PHPUnit_Framework_TestCase
 {

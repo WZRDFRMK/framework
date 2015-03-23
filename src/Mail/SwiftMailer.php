@@ -1,13 +1,13 @@
 <?php
 
-namespace Wzrd\Mail;
+namespace WZRD\Mail;
 
 use Swift_Mailer;
 use Swift_Message;
 use Swift_Attachment;
 use Swift_EmbeddedFile;
-use Wzrd\Contracts\Mail\Mailer;
-use Wzrd\Contracts\Mail\Message as MessageContract;
+use WZRD\Contracts\Mail\Mailer;
+use WZRD\Contracts\Mail\Message as MessageContract;
 
 class SwiftMailer implements Mailer
 {
@@ -31,7 +31,7 @@ class SwiftMailer implements Mailer
     /**
 	 * Send a mail
 	 *
-	 * @param  Wzrd\Contracts\Mail\Message  $message
+	 * @param  WZRD\Contracts\Mail\Message  $message
 	 * @param  array  $options
 	 */
 	public function send(MessageContract $message, $options = array())

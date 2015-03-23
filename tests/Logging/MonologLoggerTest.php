@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzrd\Test\Logging;
+namespace WZRD\Test\Logging;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use Wzrd as Framework;
+use WZRD as Framework;
 
 class MonologLoggerTest extends PHPUnit_Framework_TestCase
 {
