@@ -9,6 +9,19 @@ use WZRD as Framework;
 
 class ParsePusherTest extends PHPUnit_Framework_TestCase
 {
+    public function test_push_unknown_platform()
+    {
+        // Prepare pusher
+        $pusher = Mockery::mock('WZRD\Push\ParsePusher[parseQuery,parsePushSend]')->shouldAllowMockingProtectedMethods();
+
+        // Compose notification
+        $notification = new Framework\Push\Notification();
+        $notification->addDevices('unknown', ['token5'], ['options1' => 'value']);
+
+        // Push the notification
+        $this->assertNull($pusher->push($notification));
+    }
+
     public function test_push()
     {
         $date1 = new Datetime();
@@ -22,7 +35,8 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
         $notification->setMessage('3-0 pour le RCL !');
         $notification->setData(['id_article' => 1568]);
         $notification->addDevices('ios', ['token1', 'token2'], ['sound' => 'goal.aif']);
-        $notification->addDevices('gcm', ['token3', 'token4'], ['title' => 'But !']);
+        $notification->addDevices('android', ['token3', 'token4'], ['title' => 'But !']);
+        $notification->addDevices('unknown', ['token5'], ['options1' => 'value']);
 
         // Mock query
         $query = Mockery::mock('Parse\ParseQuery')->makePartial();
@@ -57,7 +71,8 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
         $notification->setMessage('3-0 pour le RCL !');
         $notification->setData(['id_article' => 1568]);
         $notification->addDevices('ios', ['token1', 'token2'], ['sound' => 'goal.aif']);
-        $notification->addDevices('gcm', ['token3', 'token4'], ['title' => 'But !']);
+        $notification->addDevices('android', ['token3', 'token4'], ['title' => 'But !']);
+        $notification->addDevices('unknown', ['token5'], ['options1' => 'value']);
 
         // Mock query
         $query = Mockery::mock('Parse\ParseQuery')->makePartial();

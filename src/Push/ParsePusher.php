@@ -28,38 +28,37 @@ class ParsePusher implements Pusher
      */
     public function push(NotificationContract $notification, array $options = [])
     {
-        if (count(array_intersect($notification->getTargetedPlatforms(), $this->getSupportedPlatforms())) > 0) {
-            if (empty($options['parse_query'])) {
-                // Initialize the query
-                $query = $this->parseQuery();
-
-                // Targetted devices
-                $devices = [];
-                foreach ($notification->getDevices() as $platform) {
-                    $devices = array_merge($devices, $platform['devices']);
-                }
-
-                $query->equalTo('deviceToken', $devices);
-            } else {
-                $query = $options['parse_query'];
-            }
-
-            // Platforms options
-            $platforms_options = [];
-            foreach ($notification->getDevices() as $platform) {
-                $platforms_options = array_merge($platforms_options, $platform['options']);
-            }
-
-            // Push
-            $this->parsePushSend([
-                "where"           => $query,
-                "channels"        => !empty($options['parse_channels']) ? $options['parse_channels'] : null,
-                "expiration_time" => !empty($options['parse_expiration_time']) ? $options['parse_expiration_time'] : null,
-                "push_time"       => !empty($options['parse_push_time']) ? $options['parse_push_time'] : null,
-                "data"            => array_merge($notification->getData(), $platforms_options),
-                "alert"           => $notification->getMessage(),
-            ]);
+        // Check the supported platforms
+        if (count(array_intersect($notification->getTargetedPlatforms(), $this->getSupportedPlatforms())) == 0) {
+            return;
         }
+
+        // Platforms & devices options
+        $devices = $platforms_options = [];
+        foreach ($notification->getDevices() as $platform => $data) {
+            if (in_array($platform, $this->getSupportedPlatforms())) {
+                $platforms_options = array_merge($platforms_options, $data['options']);
+                $devices           = array_merge($devices, $data['devices']);
+            }
+        }
+
+        // Query the devices
+        if (empty($options['parse_query'])) {
+            $query = $this->parseQuery();
+            $query->equalTo('deviceToken', $devices);
+        } else {
+            $query = $options['parse_query'];
+        }
+
+        // Push
+        $this->parsePushSend([
+            "where"           => $query,
+            "channels"        => !empty($options['parse_channels']) ? $options['parse_channels'] : null,
+            "expiration_time" => !empty($options['parse_expiration_time']) ? $options['parse_expiration_time'] : null,
+            "push_time"       => !empty($options['parse_push_time']) ? $options['parse_push_time'] : null,
+            "data"            => array_merge($notification->getData(), $platforms_options),
+            "alert"           => $notification->getMessage(),
+        ]);
     }
 
     /**
