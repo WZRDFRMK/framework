@@ -14,7 +14,7 @@ class BcryptHasher implements Hasher
      *
      * @return string
      */
-    public function hash($value, array $options = array())
+    public function hash($value, array $options = [])
     {
         return password_hash($value, PASSWORD_BCRYPT, $options);
     }
@@ -28,7 +28,7 @@ class BcryptHasher implements Hasher
      *
      * @return bool
      */
-    public function verify($value, $hash, array $options = array())
+    public function verify($value, $hash, array $options = [])
     {
         return (bool) password_verify($value, $hash);
     }

@@ -30,7 +30,7 @@ class Handler implements Pusher
      * @param WZRD\Contracts\Push\Notification $notification
      * @param array                            $options
      */
-    public function push(NotificationContract $notification, array $options = array())
+    public function push(NotificationContract $notification, array $options = [])
     {
         foreach ($this->pushers as $pusher) {
             if ($pusher instanceof Pusher) {
@@ -46,7 +46,7 @@ class Handler implements Pusher
      */
     public function getSupportedPlatforms()
     {
-        $platforms = array();
+        $platforms = [];
 
         foreach ($this->pushers as $pusher) {
             if ($pusher instanceof Pusher) {

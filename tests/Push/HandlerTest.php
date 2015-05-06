@@ -12,7 +12,7 @@ class HandlerTest extends PHPUnit_Framework_TestCase
     {
         // Setup mailers
         $pusher1 = $pusher2 = Mockery::mock('WZRD\Contracts\Push\Pusher')->makePartial();
-        $pushers = array($pusher1, $pusher2, new \StdClass());
+        $pushers = [$pusher1, $pusher2, new \StdClass()];
         $pusher1->shouldReceive('getSupportedPlatforms')->andReturn(['ios', 'blackberry']);
         $pusher2->shouldReceive('getSupportedPlatforms')->andReturn(['ios']);
 
@@ -22,13 +22,13 @@ class HandlerTest extends PHPUnit_Framework_TestCase
         // Prepare message
         $notification = new Framework\Push\Notification();
         $notification->setMessage('3-0 pour le RCL !');
-        $notification->setData(array('id_article' => 1568));
-        $notification->addDevices('ios', ['token1', 'token2'], array('sound' => 'goal.aif'));
-        $notification->addDevices('gcm', ['token3', 'token4'], array('title' => 'But !'));
+        $notification->setData(['id_article' => 1568]);
+        $notification->addDevices('ios', ['token1', 'token2'], ['sound' => 'goal.aif']);
+        $notification->addDevices('gcm', ['token3', 'token4'], ['title' => 'But !']);
 
         // Prepare test
-        $pusher1->shouldReceive('push')->with($notification, array())->once();
-        $pusher2->shouldReceive('push')->with($notification, array())->once();
+        $pusher1->shouldReceive('push')->with($notification, [])->once();
+        $pusher2->shouldReceive('push')->with($notification, [])->once();
 
         // Send !
         $handler->push($notification);

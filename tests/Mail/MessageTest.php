@@ -30,15 +30,15 @@ class MessageTest extends PHPUnit_Framework_TestCase
 
         $message->setHtml('<p>HTML</p>');
 
-        $message->attach('filename.jpg', array('filename' => 'cool.jpg'));
+        $message->attach('filename.jpg', ['filename' => 'cool.jpg']);
 
-        $message->inline('filename2.jpg', array('filename' => 'yeah.jpg'));
+        $message->inline('filename2.jpg', ['filename' => 'yeah.jpg']);
 
         // Tests
         $this->assertEquals(['from@sdis62.fr' => null, 'from@domain.fr' => 'From'], $message->getFrom());
-        $this->assertEquals(['to@sdis62.fr' => null, 'to@domain.fr' => 'To'], $message->getTo());
-        $this->assertEquals(['cc@sdis62.fr' => null, 'cc@domain.fr' => 'Cc'], $message->getCc());
-        $this->assertEquals(['bcc@sdis62.fr' => null, 'bcc@domain.fr' => 'Bcc'], $message->getBcc());
+        $this->assertEquals(['to@sdis62.fr'   => null, 'to@domain.fr' => 'To'], $message->getTo());
+        $this->assertEquals(['cc@sdis62.fr'   => null, 'cc@domain.fr' => 'Cc'], $message->getCc());
+        $this->assertEquals(['bcc@sdis62.fr'  => null, 'bcc@domain.fr' => 'Bcc'], $message->getBcc());
         $this->assertEquals([['filename.jpg', ['filename' => 'cool.jpg']]], $message->getAttachments());
         $this->assertEquals([['filename2.jpg', ['filename' => 'yeah.jpg']]], $message->getInlines());
         $this->assertEquals('Subject', $message->getSubject());

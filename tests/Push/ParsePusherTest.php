@@ -20,9 +20,9 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
         // Compose notification
         $notification = new Framework\Push\Notification();
         $notification->setMessage('3-0 pour le RCL !');
-        $notification->setData(array('id_article' => 1568));
-        $notification->addDevices('ios', ['token1', 'token2'], array('sound' => 'goal.aif'));
-        $notification->addDevices('gcm', ['token3', 'token4'], array('title' => 'But !'));
+        $notification->setData(['id_article' => 1568]);
+        $notification->addDevices('ios', ['token1', 'token2'], ['sound' => 'goal.aif']);
+        $notification->addDevices('gcm', ['token3', 'token4'], ['title' => 'But !']);
 
         // Mock query
         $query = Mockery::mock('Parse\ParseQuery')->makePartial();
@@ -30,21 +30,21 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
 
         // Mock pusher
         $pusher->shouldReceive('parseQuery')->andReturn($query)->once();
-        $pusher->shouldReceive('parsePushSend')->with(array(
-            "where" => $query,
-            "channels" => array('channel1', 'channel2'),
+        $pusher->shouldReceive('parsePushSend')->with([
+            "where"           => $query,
+            "channels"        => ['channel1', 'channel2'],
             "expiration_time" => $date1,
-            "push_time" => $date2,
-            "data" => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
-            "alert" => $notification->getMessage(),
-        ))->once();
+            "push_time"       => $date2,
+            "data"            => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
+            "alert"           => $notification->getMessage(),
+        ])->once();
 
         // Push the notification
-        $pusher->push($notification, array(
-            'parse_channels' => array('channel1', 'channel2'),
+        $pusher->push($notification, [
+            'parse_channels'        => ['channel1', 'channel2'],
             'parse_expiration_time' => $date1,
-            'parse_push_time' => $date2,
-        ));
+            'parse_push_time'       => $date2,
+        ]);
     }
 
     public function test_custom_query()
@@ -55,25 +55,25 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
         // Compose notification
         $notification = new Framework\Push\Notification();
         $notification->setMessage('3-0 pour le RCL !');
-        $notification->setData(array('id_article' => 1568));
-        $notification->addDevices('ios', ['token1', 'token2'], array('sound' => 'goal.aif'));
-        $notification->addDevices('gcm', ['token3', 'token4'], array('title' => 'But !'));
+        $notification->setData(['id_article' => 1568]);
+        $notification->addDevices('ios', ['token1', 'token2'], ['sound' => 'goal.aif']);
+        $notification->addDevices('gcm', ['token3', 'token4'], ['title' => 'But !']);
 
         // Mock query
         $query = Mockery::mock('Parse\ParseQuery')->makePartial();
 
         // Mock pusher
-        $pusher->shouldReceive('parsePushSend')->with(array(
-            "where" => $query,
-            "channels" => null,
+        $pusher->shouldReceive('parsePushSend')->with([
+            "where"           => $query,
+            "channels"        => null,
             "expiration_time" => null,
-            "push_time" => null,
-            "data" => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
-            "alert" => $notification->getMessage(),
-        ))->once();
+            "push_time"       => null,
+            "data"            => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
+            "alert"           => $notification->getMessage(),
+        ])->once();
 
         // Push the notification
-        $pusher->push($notification, array('parse_query' => $query));
+        $pusher->push($notification, ['parse_query' => $query]);
     }
 
     public function tearDown()

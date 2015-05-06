@@ -10,7 +10,7 @@ class StatsdProfilerTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->statsd = Mockery::mock('League\StatsD\Client')->makePartial();
+        $this->statsd   = Mockery::mock('League\StatsD\Client')->makePartial();
         $this->measurer = new Framework\Profiling\StatsdProfiler($this->statsd);
     }
 

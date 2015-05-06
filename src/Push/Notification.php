@@ -33,7 +33,7 @@ class Notification implements NotificationContract
     public function __construct()
     {
         $this->message = '';
-        $this->data = $this->devices = array();
+        $this->data    = $this->devices    = [];
     }
 
     /**
@@ -93,9 +93,9 @@ class Notification implements NotificationContract
      *
      * @return self
      */
-    public function addDevices($platform, array $devices, array $options = array())
+    public function addDevices($platform, array $devices, array $options = [])
     {
-        $data = array('devices' => $devices, 'options' => $options);
+        $data = ['devices' => $devices, 'options' => $options];
 
         if (!empty($this->devices[$platform])) {
             $this->devices[$platform]['devices'] = array_merge($this->devices[$platform]['devices'], $data['devices']);

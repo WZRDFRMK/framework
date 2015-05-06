@@ -75,7 +75,7 @@ class Message implements MessageContract
     public function __construct()
     {
         $this->text = $this->html = $this->subject = '';
-        $this->from = $this->to = $this->cc = $this->bcc = $this->attach = $this->inline = array();
+        $this->from = $this->to = $this->cc = $this->bcc = $this->attach = $this->inline = [];
     }
 
     /**
@@ -258,9 +258,9 @@ class Message implements MessageContract
      *
      * @return $this
      */
-    public function attach($file, array $options = array())
+    public function attach($file, array $options = [])
     {
-        $this->attach[] = array($file, $options);
+        $this->attach[] = [$file, $options];
 
         return $this;
     }
@@ -283,9 +283,9 @@ class Message implements MessageContract
      *
      * @return $this
      */
-    public function inline($file, array $options = array())
+    public function inline($file, array $options = [])
     {
-        $this->inline[] = array($file, $options);
+        $this->inline[] = [$file, $options];
 
         return $this;
     }

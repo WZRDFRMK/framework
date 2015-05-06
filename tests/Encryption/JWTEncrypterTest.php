@@ -11,15 +11,15 @@ class JWTEncrypterTest extends PHPUnit_Framework_TestCase
     public function test_encrypt_decrypt()
     {
         // Init ..
-        $encrypter = new Framework\Encryption\JWTEncrypter('security_key');
+        $encrypter   = new Framework\Encryption\JWTEncrypter('security_key');
         $encrypter_2 = new Framework\Encryption\JWTEncrypter('diff_key');
 
         // Test !
         $plain_value = 'value';
 
         // Do encrypt / encrypt
-        $encrypted_value = $encrypter->encrypt($plain_value);
-        $decrypted_value = $encrypter->decrypt($encrypted_value);
+        $encrypted_value   = $encrypter->encrypt($plain_value);
+        $decrypted_value   = $encrypter->decrypt($encrypted_value);
         $encrypted_value_2 = $encrypter_2->encrypt($plain_value);
         $decrypted_value_2 = $encrypter_2->decrypt($encrypted_value_2);
 
@@ -40,7 +40,7 @@ class JWTEncrypterTest extends PHPUnit_Framework_TestCase
         $encrypter = new Framework\Encryption\JWTEncrypter('security_key');
 
         // Test !
-        $plain_value = array('test' => 'ok');
+        $plain_value     = ['test' => 'ok'];
         $encrypted_value = $encrypter->encrypt($plain_value);
         $decrypted_value = $encrypter->decrypt($encrypted_value);
         $this->assertNotEquals($plain_value, $encrypted_value);

@@ -14,9 +14,9 @@ class BcryptHasherTest extends PHPUnit_Framework_TestCase
         $hasher = new Framework\Hashing\BcryptHasher();
 
         // Hash
-        $plain_value = 'value';
-        $hash = $hasher->hash($plain_value, array('cost' => 10));
-        $hash_with_different_cost = $hasher->hash($plain_value, array('cost' => 5));
+        $plain_value              = 'value';
+        $hash                     = $hasher->hash($plain_value, ['cost' => 10]);
+        $hash_with_different_cost = $hasher->hash($plain_value, ['cost' => 5]);
 
         // Test
         $this->assertNotEquals($plain_value, $hash);

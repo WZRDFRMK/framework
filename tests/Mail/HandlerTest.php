@@ -12,7 +12,7 @@ class HandlerTest extends PHPUnit_Framework_TestCase
     {
         // Setup mailers
         $mailer1 = $mailer2 = Mockery::mock('WZRD\Contracts\Mail\Mailer')->makePartial();
-        $mailers = array($mailer1, $mailer2, new \StdClass());
+        $mailers = [$mailer1, $mailer2, new \StdClass()];
 
         // Configure handler
         $handler = new Framework\Mail\Handler($mailers);
@@ -30,12 +30,12 @@ class HandlerTest extends PHPUnit_Framework_TestCase
         $message->setSubject('Subject');
         $message->setText('Text');
         $message->setHtml('<p>HTML</p>');
-        $message->attach('filename.jpg', array('filename' => 'cool.jpg', 'content-type' => 'image/jpg'));
-        $message->inline('filename2.jpg', array('filename' => 'yeah.jpg'));
+        $message->attach('filename.jpg', ['filename' => 'cool.jpg', 'content-type' => 'image/jpg']);
+        $message->inline('filename2.jpg', ['filename' => 'yeah.jpg']);
 
         // Prepare test
-        $mailer1->shouldReceive('send')->with($message, array())->once();
-        $mailer2->shouldReceive('send')->with($message, array())->once();
+        $mailer1->shouldReceive('send')->with($message, [])->once();
+        $mailer2->shouldReceive('send')->with($message, [])->once();
 
         // Send !
         $handler->send($message);

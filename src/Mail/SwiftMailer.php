@@ -34,7 +34,7 @@ class SwiftMailer implements Mailer
      * @param WZRD\Contracts\Mail\Message $message
      * @param array                       $options
      */
-    public function send(MessageContract $message, $options = array())
+    public function send(MessageContract $message, $options = [])
     {
         // Initialisation d'un nouveau message
         $swift_message = Swift_Message::newInstance();

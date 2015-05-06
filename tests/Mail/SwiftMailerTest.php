@@ -11,7 +11,7 @@ class SwiftMailerTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->swift = Mockery::mock('Swift_Mailer')->makePartial();
+        $this->swift  = Mockery::mock('Swift_Mailer')->makePartial();
         $this->mailer = new Framework\Mail\SwiftMailer($this->swift);
     }
 
@@ -30,8 +30,8 @@ class SwiftMailerTest extends PHPUnit_Framework_TestCase
         $message->setSubject('Subject');
         $message->setText('Text');
         $message->setHtml('<p>HTML</p>');
-        $message->attach('filename.jpg', array('filename' => 'cool.jpg', 'content-type' => 'image/jpg'));
-        $message->inline('filename2.jpg', array('filename' => 'yeah.jpg'));
+        $message->attach('filename.jpg', ['filename' => 'cool.jpg', 'content-type' => 'image/jpg']);
+        $message->inline('filename2.jpg', ['filename' => 'yeah.jpg']);
 
         // Prepare test
         $this->swift->shouldReceive('send')->once();

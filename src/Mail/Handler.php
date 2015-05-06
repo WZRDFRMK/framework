@@ -30,7 +30,7 @@ class Handler implements Mailer
      * @param WZRD\Contracts\Mail\Message $message
      * @param array                       $options
      */
-    public function send(MessageContract $message, $options = array())
+    public function send(MessageContract $message, $options = [])
     {
         foreach ($this->mailers as $mailer) {
             if ($mailer instanceof Mailer) {

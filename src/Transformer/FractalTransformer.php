@@ -4,7 +4,6 @@ namespace WZRD\Transformer;
 
 use League\Fractal;
 use Pagerfanta\Pagerfanta;
-use Pagerfanta\Adapter\ArrayAdapter;
 use League\Fractal\TransformerAbstract;
 use WZRD\Contracts\Transformer\Transformer;
 use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
@@ -29,24 +28,24 @@ class FractalTransformer implements Transformer
      * Create a new fractal transformer instance.
      *
      * @param League\Fractal\Manager $fractal
-     * @param callable $route_generator
+     * @param callable               $route_generator
      */
     public function __construct(Fractal\Manager $fractal, callable $route_generator = null)
     {
-        $this->fractal = $fractal;
-        $this->route_generator = is_callable($route_generator) ? $route_generator : function($page) {return $page;};
+        $this->fractal         = $fractal;
+        $this->route_generator = is_callable($route_generator) ? $route_generator : function ($page) {return $page;};
     }
 
     /**
      * Transform a response with a transformer.
      *
-     * @param mixed  $value
+     * @param mixed                              $value
      * @param League\Fractal\TransformerAbstract $transformer
-     * @param array  $includes    Optional
+     * @param array                              $includes    Optional
      *
      * @return array
      */
-    public function transform($value, $transformer, $includes = array())
+    public function transform($value, $transformer, $includes = [])
     {
         if (!empty($includes)) {
             $this->fractal->parseIncludes(implode(',', $includes));
@@ -60,23 +59,21 @@ class FractalTransformer implements Transformer
     /**
      * Create a Fractal resource instance.
      *
-     * @param mixed  $value
+     * @param mixed                              $value
      * @param League\Fractal\TransformerAbstract $transformer
      *
      * @return League\Fractal\Resource\ResourceAbstract
      */
     protected function createResource($value, TransformerAbstract $transformer)
     {
-        if($value instanceof Pagerfanta) {
+        if ($value instanceof Pagerfanta) {
             $resource = new Fractal\Resource\Collection($value, $transformer);
             $resource->setPaginator(new PagerfantaPaginatorAdapter($value, $this->route_generator));
-        }
-        else if (is_array($value)) {
-            $cursor = new Fractal\Pagination\Cursor(null, null, null, count($value));
+        } elseif (is_array($value)) {
+            $cursor   = new Fractal\Pagination\Cursor(null, null, null, count($value));
             $resource = new Fractal\Resource\Collection($value, $transformer);
             $resource->setCursor($cursor);
-        }
-        else {
+        } else {
             $resource = new Fractal\Resource\Item($value, $transformer);
         }
 
