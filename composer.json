@@ -32,7 +32,8 @@
         "zendframework/zendservice-google-gcm": "~1.0",
         "zendframework/zendservice-apple-apns": "~1.0",
         "league/statsd": "~1.1",
-        "parse/php-sdk": "~1.0"
+        "parse/php-sdk": "~1.0",
+        "pagerfanta/pagerfanta": "~1.0"
     },
 
     "require-dev": {
