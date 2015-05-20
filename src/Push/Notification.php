@@ -101,7 +101,7 @@ class Notification implements NotificationContract
             $this->devices[$platform]['devices'] = array_merge($this->devices[$platform]['devices'], $data['devices']);
             $this->devices[$platform]['options'] = array_merge($this->devices[$platform]['options'], $data['options']);
         } else {
-            $this->devices[$platform] =  $data;
+            $this->devices[$platform] = $data;
         }
 
         return $this;

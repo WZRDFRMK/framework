@@ -52,12 +52,12 @@ class ParsePusher implements Pusher
 
         // Push
         $this->parsePushSend([
-            "where"           => $query,
-            "channels"        => !empty($options['parse_channels']) ? $options['parse_channels'] : null,
-            "expiration_time" => !empty($options['parse_expiration_time']) ? $options['parse_expiration_time'] : null,
-            "push_time"       => !empty($options['parse_push_time']) ? $options['parse_push_time'] : null,
-            "data"            => array_merge($notification->getData(), $platforms_options),
-            "alert"           => $notification->getMessage(),
+            'where'           => $query,
+            'channels'        => !empty($options['parse_channels']) ? $options['parse_channels'] : null,
+            'expiration_time' => !empty($options['parse_expiration_time']) ? $options['parse_expiration_time'] : null,
+            'push_time'       => !empty($options['parse_push_time']) ? $options['parse_push_time'] : null,
+            'data'            => array_merge($notification->getData(), $platforms_options),
+            'alert'           => $notification->getMessage(),
         ]);
     }
 
