@@ -23,7 +23,8 @@
 
     "require": {
         "php" : "^5.6|^7.0",
-        "wzrd/contracts": "dev-master"
+        "wzrd/contracts": "dev-master",
+        "pagerfanta/pagerfanta": "^1.0"
     },
 
     "require-dev": {
