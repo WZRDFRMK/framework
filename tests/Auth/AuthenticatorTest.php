@@ -6,17 +6,16 @@ use Exception;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;
-use WZRD\Contracts as Contracts;
 
 class AuthenticatorTest extends PHPUnit_Framework_TestCase
 {
     public function test_authenticate()
     {
         // Init ..
-        $authenticator = new Framework\Auth\Authenticator;
-        $providers = [
+        $authenticator = new Framework\Auth\Authenticator();
+        $providers     = [
             Mockery::mock('WZRD\Contracts\Auth\Provider'),
-            Mockery::mock('WZRD\Contracts\Auth\Provider')
+            Mockery::mock('WZRD\Contracts\Auth\Provider'),
         ];
 
         // Prepare
@@ -31,10 +30,10 @@ class AuthenticatorTest extends PHPUnit_Framework_TestCase
     public function test_authenticate_throw_exception()
     {
         // Init ..
-        $authenticator = new Framework\Auth\Authenticator;
-        $providers = [
+        $authenticator = new Framework\Auth\Authenticator();
+        $providers     = [
             Mockery::mock('WZRD\Contracts\Auth\Provider'),
-            Mockery::mock('WZRD\Contracts\Auth\Provider')
+            Mockery::mock('WZRD\Contracts\Auth\Provider'),
         ];
 
         // Prepare
@@ -48,6 +47,7 @@ class AuthenticatorTest extends PHPUnit_Framework_TestCase
             $this->fail('Exception must be throw');
         } catch (Exception $e) {
             $this->assertEquals('Invalid', $e->getMessage());
+
             return;
         }
     }

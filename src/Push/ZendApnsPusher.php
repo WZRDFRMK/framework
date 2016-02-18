@@ -2,10 +2,10 @@
 
 namespace WZRD\Push;
 
-use WZRD\Contracts\Push\Pusher;
-use ZendService\Apple\Apns\Message;
-use ZendService\Apple\Apns\Client\Message as Client;
 use WZRD\Contracts\Push\Notification as NotificationContract;
+use WZRD\Contracts\Push\Pusher;
+use ZendService\Apple\Apns\Client\Message as Client;
+use ZendService\Apple\Apns\Message;
 
 class ZendApnsPusher implements Pusher
 {

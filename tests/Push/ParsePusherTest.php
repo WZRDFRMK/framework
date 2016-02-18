@@ -2,8 +2,8 @@
 
 namespace WZRD\Test\Push;
 
-use Mockery;
 use Datetime;
+use Mockery;
 use PHPUnit_Framework_TestCase;
 use WZRD as Framework;
 
@@ -45,12 +45,12 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
         // Mock pusher
         $pusher->shouldReceive('parseQuery')->andReturn($query)->once();
         $pusher->shouldReceive('parsePushSend')->with([
-            "where"           => $query,
-            "channels"        => ['channel1', 'channel2'],
-            "expiration_time" => $date1,
-            "push_time"       => $date2,
-            "data"            => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
-            "alert"           => $notification->getMessage(),
+            'where'           => $query,
+            'channels'        => ['channel1', 'channel2'],
+            'expiration_time' => $date1,
+            'push_time'       => $date2,
+            'data'            => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
+            'alert'           => $notification->getMessage(),
         ])->once();
 
         // Push the notification
@@ -79,12 +79,12 @@ class ParsePusherTest extends PHPUnit_Framework_TestCase
 
         // Mock pusher
         $pusher->shouldReceive('parsePushSend')->with([
-            "where"           => $query,
-            "channels"        => null,
-            "expiration_time" => null,
-            "push_time"       => null,
-            "data"            => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
-            "alert"           => $notification->getMessage(),
+            'where'           => $query,
+            'channels'        => null,
+            'expiration_time' => null,
+            'push_time'       => null,
+            'data'            => ['id_article' => 1568, 'sound' => 'goal.aif', 'title' => 'But !'],
+            'alert'           => $notification->getMessage(),
         ])->once();
 
         // Push the notification

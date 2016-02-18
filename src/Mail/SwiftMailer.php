@@ -2,10 +2,10 @@
 
 namespace WZRD\Mail;
 
-use Swift_Mailer;
-use Swift_Message;
 use Swift_Attachment;
 use Swift_EmbeddedFile;
+use Swift_Mailer;
+use Swift_Message;
 use WZRD\Contracts\Mail\Mailer;
 use WZRD\Contracts\Mail\Message as MessageContract;
 

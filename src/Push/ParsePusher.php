@@ -2,11 +2,11 @@
 
 namespace WZRD\Push;
 
+use Parse\ParseInstallation;
 use Parse\ParsePush;
 use Parse\ParseQuery;
-use Parse\ParseInstallation;
-use WZRD\Contracts\Push\Pusher;
 use WZRD\Contracts\Push\Notification as NotificationContract;
+use WZRD\Contracts\Push\Pusher;
 
 class ParsePusher implements Pusher
 {

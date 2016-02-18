@@ -3,8 +3,8 @@
 namespace WZRD\Test\Mail;
 
 use Mockery;
-use Swift_Mailer;
 use PHPUnit_Framework_TestCase;
+use Swift_Mailer;
 use WZRD as Framework;
 
 class SwiftMailerTest extends PHPUnit_Framework_TestCase

@@ -3,8 +3,8 @@
 namespace WZRD\Auth;
 
 use Exception;
-use WZRD\Contracts\Auth\Provider;
 use WZRD\Contracts\Auth\Authenticator as AuthenticatorContract;
+use WZRD\Contracts\Auth\Provider;
 
 class Authenticator implements AuthenticatorContract
 {

@@ -2,11 +2,11 @@
 
 namespace WZRD\Push;
 
-use Zend\Http\Client as Http;
+use WZRD\Contracts\Push\Notification as NotificationContract;
 use WZRD\Contracts\Push\Pusher;
+use Zend\Http\Client as Http;
 use ZendService\Google\Gcm\Client;
 use ZendService\Google\Gcm\Message;
-use WZRD\Contracts\Push\Notification as NotificationContract;
 
 class ZendGcmPusher implements Pusher
 {

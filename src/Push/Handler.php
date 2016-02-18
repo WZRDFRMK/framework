@@ -2,8 +2,8 @@
 
 namespace WZRD\Push;
 
-use WZRD\Contracts\Push\Pusher;
 use WZRD\Contracts\Push\Notification as NotificationContract;
+use WZRD\Contracts\Push\Pusher;
 
 class Handler implements Pusher
 {
