@@ -38,7 +38,8 @@
         "zendframework/zendservice-google-gcm": "^1.0",
         "zendframework/zendservice-apple-apns": "^1.0",
         "league/statsd": "^1.1",
-        "parse/php-sdk": "^1.0"
+        "parse/php-sdk": "^1.0",
+        "league/tactician": "^1.0"
     },
 
     "suggest": {
@@ -48,7 +49,8 @@
         "zendframework/zendservice-google-gcm": "To use ZendGcmPusher.",
         "zendframework/zendservice-apple-apns": "To use ZendApnsPusher.",
         "league/statsd": "To use StatsdProfiler.",
-        "parse/php-sdk": "To use ParsePusher."
+        "parse/php-sdk": "To use ParsePusher.",
+        "league/tactician": "To use TacticianBus."
     },
 
     "autoload": {
